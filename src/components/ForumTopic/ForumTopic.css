@@ -1,0 +1,32 @@
+.forum-topic {
+  font-size: 14pt;
+  font-weight: normal;
+  border: 1px solid black;
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-bottom: 2em;
+}
+.forum-topic-title {
+  height: 3em;
+  vertical-align: middle;
+  text-align: left;
+  color: white;
+  background-color: black;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+.forum-topic-title .title {
+  float: left;
+}
+.forum-topic-title .createdOn {
+  float: right;
+}
+.forum-expanded {
+  transform: none;
+}
+.forum-contracted {
+  transform: rotate(90);
+}

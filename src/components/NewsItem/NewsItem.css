@@ -1,0 +1,31 @@
+.newsbox {
+  font-size: 14pt;
+  font-weight: normal;
+  border: 1px solid black;
+  margin-left: 4em;
+  margin-right: 4em;
+  margin-bottom: 2em;
+}
+.newsbox-title {
+  height: 3em;
+  vertical-align: middle;
+  color: white;
+  background-color: black;
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 1px solid black;
+}
+.newsbox-title-text {
+  float: left;
+}
+.newsbox-title-date {
+  float: right;
+}
+.newsbox-text {
+  padding-top: 8px;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: left;
+}
+  
