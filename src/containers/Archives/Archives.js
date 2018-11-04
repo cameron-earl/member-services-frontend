@@ -31,7 +31,7 @@ class Archives extends MainView {
           page='Archives'
           togglePasswordModal={this.togglePasswordModal}
         />
-        <PageHeader>Archived Movies and TV Shows</PageHeader>
+        <PageHeader>Archives</PageHeader>
         <div>
           {this.state.items.map(item => (
             <ArchivedItem key={item.id} item={item} fn={this.updateSummaryPanel}/>
