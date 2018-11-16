@@ -12,3 +12,16 @@
     text-align: left;
     margin-left: 1em;
 }
+
+.reply-button {
+  width: 32px;
+  height: 32px;
+  float: right;
+  background-color: green;
+  -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  cursor: pointer;
+  vertical-align: bottom;
+  text-align: right;
+  color: white;
+}
