@@ -76,7 +76,7 @@ export const ForumData = [
             title: "First Reply",
             createdOn: "2018-09-09T07:18:52",
             createdBy: "marcb",
-            content: "Reply",
+            content: "_Reply_ and **with Markdown!!**",
             updatedOn: null,
             updatedBy: null,
             replies: []

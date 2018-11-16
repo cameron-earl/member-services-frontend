@@ -1,0 +1,21 @@
+.post {
+    text-align: left;
+    border: 1px solid black;
+    margin-right: 2em;
+}
+
+.post-title {
+    background: black;
+    color: white;
+    padding-left: 1em;
+}
+
+.post-content {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.reply {
+    text-align: left;
+    margin-left: 1em;
+}
