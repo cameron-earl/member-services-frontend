@@ -1,13 +1,6 @@
 .post {
     text-align: left;
-    border: 1px solid black;
     margin-right: 2em;
-}
-
-.post-title {
-    background: black;
-    color: white;
-    padding-left: 1em;
 }
 
 .post-content {
