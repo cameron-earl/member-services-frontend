@@ -5,6 +5,7 @@ import MainView from "../MainView/MainView";
 import MainNavBar from "../../components/MainNavBar/MainNavBar";
 import ForumTopic from "../../components/ForumTopic/ForumTopic";
 import ForumPost from "../../components/ForumPost/ForumPost";
+import ForumReplyModal from "../../components/ForumReplyModal/ForumReplyModal";
 import PasswordChangeModal from "../../components/PasswordChangeModal/PasswordChangeModal";
 import "./Forums.css";
 
@@ -13,12 +14,21 @@ import { ForumData } from "../../Data";
 class Forums extends MainView {
   state = {
     forums: [],
-    selectedForum: null
+    selectedForum: null,
+    showForumReplyModal: false,
+    replyPost: null,
   };
 
   componentDidMount = () => {
     this.setState({ forums: ForumData, selectedForum: ForumData[0] });
   };
+
+  toggleForumReplyModal = (post) => {
+    this.setState(prevState => ({
+      showForumReplyModal: !prevState.showForumReplyModal,
+      replyPost: post
+    }));
+  }
 
   selectForum = forum => {
     this.setState({ selectedForum: forum });
@@ -46,12 +56,23 @@ class Forums extends MainView {
           <div>
             {this.state.selectedForum &&
               this.state.selectedForum.posts.map(post => (
-                post.replyId == null && <ForumPost key={post.id} post={post} />
+                post.replyId == null &&
+                  <ForumPost
+                    key={post.id}
+                    post={post}
+                    toggleReplyModal={this.toggleForumReplyModal}
+                  />
               ))}
           </div>
         </SplitPane>
         {this.state.showPasswordModal && (
           <PasswordChangeModal toggleModal={this.togglePasswordModal} />
+        )}
+        {this.state.showForumReplyModal && (
+          <ForumReplyModal
+            toggleModal={this.toggleForumReplyModal}
+            post={this.state.replyPost}
+          />
         )}
       </div>
     );

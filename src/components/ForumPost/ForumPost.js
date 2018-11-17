@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Panel } from "react-bootstrap";
 import ReactMarkdown from "react-markdown";
 import "./ForumPost.css";
+import PropTypes from "prop-types";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,13 +11,8 @@ import { faReply } from "@fortawesome/free-solid-svg-icons";
 library.add(faReply);
 
 class ForumPost extends Component {
-  reply = post => {
-    alert(post.title);
-  };
-
   render() {
-    const { post } = this.props;
-
+    const { post, toggleReplyModal } = this.props;
     return (
       <div className="post">
         <Panel bsStyle={post.replyId == null ? "primary" : "info"} defaultExpanded>
@@ -28,15 +24,17 @@ class ForumPost extends Component {
               <ReactMarkdown source={post.content} linkTarget="_blank" />
               <div
                 className="reply-button"
-                onClick={() => {
-                  this.reply(post);
-                }}
+                onClick={() => { toggleReplyModal(post); }}
               />
             </Panel.Body>
             <div className="reply">
               {post.replies &&
                 post.replies.map(reply => (
-                  <ForumPost key={reply.id} post={reply} />
+                  <ForumPost
+                    key={reply.id}
+                    post={reply}
+                    toggleReplyModal={this.props.toggleReplyModal}
+                  />
                 ))}
             </div>
           </Panel.Collapse>
@@ -45,5 +43,10 @@ class ForumPost extends Component {
     );
   }
 }
+
+ForumPost.propTypes = {
+  toggleReplyModal: PropTypes.func.isRequired,
+  post: PropTypes.object,
+};
 
 export default ForumPost;
